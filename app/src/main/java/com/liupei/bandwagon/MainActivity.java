@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
@@ -28,7 +29,7 @@ import java.util.Locale;
 import okhttp3.Call;
 import okhttp3.Response;
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
 
     private static final String TAG = "MainActivity";
     private ActivityMainBinding binding;
@@ -43,6 +44,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.app_name, R.string.app_name);
         NavigationView navigationView = (NavigationView) findViewById(R.id.nv_view);
         navigationView.setNavigationItemSelectedListener(this);
+        findViewById(R.id.fab).setOnClickListener(this);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
         getServiceInfo();
@@ -125,5 +127,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 break;
         }
         return true;
+    }
+
+    @Override
+    public void onClick(View view) {
+        getServiceInfo();
     }
 }
