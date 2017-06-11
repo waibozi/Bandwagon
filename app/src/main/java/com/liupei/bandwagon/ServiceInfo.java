@@ -41,16 +41,16 @@ public class ServiceInfo {
     private String plan;
     private long plan_monthly_data;
     private long plan_disk;
-    private int plan_ram;
-    private int plan_swap;
-    private int plan_max_ipv6s;
+    private long plan_ram;
+    private long plan_swap;
+    private long plan_max_ipv6s;
     private String os;
     private String email;
-    private int data_counter;
-    private int data_next_reset;
+    private double data_counter;
+    private long data_next_reset;
     private boolean rdns_api_available;
     private boolean suspended;
-    private int error;
+    private long error;
     private List<String> ip_addresses;
     private String unit;
     private String countUnit;
@@ -152,27 +152,27 @@ public class ServiceInfo {
         this.plan_disk = plan_disk;
     }
 
-    public int getPlan_ram() {
+    public long getPlan_ram() {
         return plan_ram;
     }
 
-    public void setPlan_ram(int plan_ram) {
+    public void setPlan_ram(long plan_ram) {
         this.plan_ram = plan_ram;
     }
 
-    public int getPlan_swap() {
+    public long getPlan_swap() {
         return plan_swap;
     }
 
-    public void setPlan_swap(int plan_swap) {
+    public void setPlan_swap(long plan_swap) {
         this.plan_swap = plan_swap;
     }
 
-    public int getPlan_max_ipv6s() {
+    public long getPlan_max_ipv6s() {
         return plan_max_ipv6s;
     }
 
-    public void setPlan_max_ipv6s(int plan_max_ipv6s) {
+    public void setPlan_max_ipv6s(long plan_max_ipv6s) {
         this.plan_max_ipv6s = plan_max_ipv6s;
     }
 
@@ -192,11 +192,11 @@ public class ServiceInfo {
         this.email = email;
     }
 
-    public int getData_counter() {
+    public double getData_counter() {
         return data_counter;
     }
 
-    public void setData_counter(int data_counter) {
+    public void setData_counter(double data_counter) {
         this.data_counter = data_counter;
     }
 
@@ -204,7 +204,7 @@ public class ServiceInfo {
         return data_next_reset;
     }
 
-    public void setData_next_reset(int data_next_reset) {
+    public void setData_next_reset(long data_next_reset) {
         this.data_next_reset = data_next_reset;
     }
 
@@ -224,11 +224,11 @@ public class ServiceInfo {
         this.suspended = suspended;
     }
 
-    public int getError() {
+    public long getError() {
         return error;
     }
 
-    public void setError(int error) {
+    public void setError(long error) {
         this.error = error;
     }
 

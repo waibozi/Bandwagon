@@ -20,6 +20,7 @@ import com.lzy.okgo.callback.StringCallback;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -62,12 +63,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                             info.setPlan_monthly_data(info.getPlan_monthly_data() >> 30);
                             info.setUnit("GB");
                         }
-                        if (info.getData_counter() >> 30 < 1) {
-                            info.setData_counter(info.getData_counter() >> 20);
-                            info.setCountUnit("MB");
+                        if (info.getData_counter() / (1 << 30) < 1) {
+                            String dataCount = new DecimalFormat(".##").format(info.getData_counter() / (1 << 20));
+                            info.setCountUnit(dataCount + "MB");
                         } else {
-                            info.setData_counter(info.getData_counter() >> 30);
-                            info.setCountUnit("GB");
+                            String dataCount = new DecimalFormat(".##").format(info.getData_counter() / (1 << 30));
+                            info.setCountUnit(dataCount + "GB");
                         }
                         info.setResetDate(new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new Date(info.getData_next_reset() * 1000)));
                         binding.setInfo(info);
@@ -86,8 +87,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         try {
                             JSONObject jsonObject = new JSONObject(s);
                             if (jsonObject.has("error")) {
-                                if (jsonObject.getInt("error")==0) {
-                                    String toastContent="";
+                                if (jsonObject.getInt("error") == 0) {
+                                    String toastContent = "";
                                     switch (status) {
                                         case UrlConfig.START_SERVICE:
                                             toastContent = "启动成功";
