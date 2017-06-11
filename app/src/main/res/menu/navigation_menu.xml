@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:id="@+id/icon_group" >
+        <item
+            android:id="@+id/start"
+            android:icon="@mipmap/ic_run"
+            android:title="@string/text_start" />
+
+        <item
+            android:id="@+id/shutdown"
+            android:icon="@mipmap/ic_shutdown"
+            android:title="@string/text_shutdown" />
+        <item
+            android:id="@+id/restart"
+            android:icon="@mipmap/ic_restart"
+            android:title="@string/text_restart" />
+    </group>
+</menu>
